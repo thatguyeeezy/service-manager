@@ -9,7 +9,10 @@ require('dotenv').config();
 const WS_PORT = parseInt(process.env.WS_PORT || '3001');
 
 export function startWebSocketServer(): WebSocketServer {
-  const wss = new WebSocketServer({ port: WS_PORT });
+  const wss = new WebSocketServer({ 
+    port: WS_PORT,
+    host: '0.0.0.0' // Listen on all network interfaces
+  });
 
   wss.on('connection', (ws: WebSocket, req) => {
     console.log('New WebSocket connection');
