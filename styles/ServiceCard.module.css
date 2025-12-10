@@ -1,0 +1,174 @@
+.card {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 24px;
+  transition: all 0.2s;
+}
+
+.card:hover {
+  border-color: #475569;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.name {
+  font-size: 20px;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.status {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: white;
+}
+
+.description {
+  color: #94a3b8;
+  font-size: 14px;
+  margin-bottom: 16px;
+  min-height: 40px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+  padding: 12px;
+  background: #0f172a;
+  border-radius: 8px;
+}
+
+.infoItem {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.label {
+  color: #94a3b8;
+}
+
+.value {
+  color: #e2e8f0;
+  font-weight: 500;
+}
+
+.error {
+  padding: 8px;
+  background: #7f1d1d;
+  border: 1px solid #991b1b;
+  border-radius: 6px;
+  color: #fca5a5;
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.viewButton {
+  width: 100%;
+  padding: 10px;
+  background: #334155;
+  border: 1px solid #475569;
+  border-radius: 6px;
+  color: #e2e8f0;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.viewButton:hover {
+  background: #475569;
+}
+
+.controlButtons {
+  display: flex;
+  gap: 8px;
+}
+
+.startButton,
+.stopButton,
+.restartButton {
+  flex: 1;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.startButton {
+  background: #10b981;
+  color: white;
+}
+
+.startButton:hover:not(:disabled) {
+  background: #059669;
+}
+
+.stopButton {
+  background: #ef4444;
+  color: white;
+}
+
+.stopButton:hover:not(:disabled) {
+  background: #dc2626;
+}
+
+.restartButton {
+  background: #f59e0b;
+  color: white;
+}
+
+.restartButton:hover:not(:disabled) {
+  background: #d97706;
+}
+
+.startButton:disabled,
+.stopButton:disabled,
+.restartButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.deleteButton {
+  width: 100%;
+  padding: 8px;
+  background: #7f1d1d;
+  border: 1px solid #991b1b;
+  border-radius: 6px;
+  color: #fca5a5;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.deleteButton:hover:not(:disabled) {
+  background: #991b1b;
+}
+
+.deleteButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+

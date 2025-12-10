@@ -1,0 +1,32 @@
+.dashboard {
+  width: 100%;
+}
+
+.header {
+  margin-bottom: 32px;
+}
+
+.header h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #e2e8f0;
+}
+
+.welcome {
+  color: #94a3b8;
+  font-size: 16px;
+}
+
+.welcome strong {
+  color: #60a5fa;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #94a3b8;
+}
+
