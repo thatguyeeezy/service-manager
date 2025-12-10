@@ -3,14 +3,15 @@
   "version": "1.0.0",
   "description": "Pterodactyl-like service management panel for Windows Server",
   "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "ws": "tsx server/index.ts",
-    "ws:dev": "tsx watch server/index.ts"
-  },
+"scripts": {
+  "dev": "next dev",
+  "build": "next build",
+  "start": "next start",
+  "lint": "next lint",
+
+  "ws": "tsx server/index.ts",
+  "ws:dev": "tsx watch server/index.ts"
+},
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
