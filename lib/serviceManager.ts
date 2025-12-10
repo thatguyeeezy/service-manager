@@ -10,7 +10,7 @@ export interface ServiceProcess {
 
 class ServiceManager {
   private processes: Map<number, ServiceProcess> = new Map();
-  private logCallbacks: Map<number, Set<(data: string, type: 'stdout' | 'stderr') => void>> = new Map();
+  private logCallbacks: Map<number, Set<(data: string, type: 'stdout' | 'stderr' | 'system') => void>> = new Map();
 
   async startService(
     serviceId: number,
@@ -177,7 +177,7 @@ class ServiceManager {
     return serviceProcess?.pid || null;
   }
 
-  subscribeToLogs(serviceId: number, callback: (data: string, type: 'stdout' | 'stderr') => void): () => void {
+  subscribeToLogs(serviceId: number, callback: (data: string, type: 'stdout' | 'stderr' | 'system') => void): () => void {
     if (!this.logCallbacks.has(serviceId)) {
       this.logCallbacks.set(serviceId, new Set());
     }
@@ -195,7 +195,7 @@ class ServiceManager {
     };
   }
 
-  private broadcastLog(serviceId: number, data: string, type: 'stdout' | 'stderr'): void {
+  private broadcastLog(serviceId: number, data: string, type: 'stdout' | 'stderr' | 'system'): void {
     const callbacks = this.logCallbacks.get(serviceId);
     if (callbacks) {
       callbacks.forEach(callback => {
