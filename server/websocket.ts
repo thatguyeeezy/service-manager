@@ -2,9 +2,11 @@ import { WebSocketServer, WebSocket } from 'ws';
 import { serviceManager } from '../lib/serviceManager';
 import db from '../lib/db';
 import { verifyToken } from '../lib/auth';
+import dotenv from 'dotenv';
+import path from 'path';
 
-// Load environment variables
-require('dotenv').config();
+// Load environment variables from project root
+dotenv.config({ path: path.resolve(process.cwd(), '.env') });
 
 const WS_PORT = parseInt(process.env.WS_PORT || '3001');
 
@@ -28,8 +30,16 @@ export function startWebSocketServer(): WebSocketServer {
 
         if (data.type === 'authenticate') {
           // Verify token
+          if (!data.token) {
+            console.error('WebSocket: No token provided');
+            ws.send(JSON.stringify({ type: 'error', message: 'No token provided' }));
+            ws.close();
+            return;
+          }
+          
           const user = verifyToken(data.token);
           if (!user) {
+            console.error('WebSocket: Invalid token - JWT_SECRET:', process.env.JWT_SECRET ? 'Set' : 'Not set');
             ws.send(JSON.stringify({ type: 'error', message: 'Invalid token' }));
             ws.close();
             return;
